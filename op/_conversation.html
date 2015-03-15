@@ -1,0 +1,20 @@
+<br /><br />
+
+<p>Voici la conversation en cours. Vous pouvez y participer <strong>si la conversation est faite pour l'opérateur humain.</strong></p>
+<div scroll-glue id="conversation" class="msg-container well">
+	<div ng-repeat="message in allMessages" class="message">
+		<blockquote ng-class="{'blockquote-reverse' : message.is_participant }">
+			{{message.messageContent}}
+			<footer><strong ng-hide="message.is_participant">Opérateur à </strong>{{message.timestamp | date : 'HH:mm:ss'}}</footer>
+		</blockquote>
+	</div>
+</div>
+
+<form ng-show="avail" name="reviewForm" ng-controller="MsgController as msgCtrl" ng-submit="msgCtrl.addMessage(message)">
+	<fieldset class="form-group">
+		<input ng-model="msgCtrl.message.messageContent" type="text" class="form-control" placeholder="Entrez votre message" title="Message" />
+	</fieldset>
+	<fieldset class="form-group">
+	  <input type="submit" class="btn btn-primary pull-right" value="Envoyer le message" />
+	</fieldset>
+</form>

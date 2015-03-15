@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="operator">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/app.css" />
+		<script type="text/javascript" src="../vendor/angular.min.js"></script>
+    <script type="text/javascript" src="../vendor/scrollglue.js"></script>
+    <script type="text/javascript" src="op.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Turing Test - Mode Opérateur</title>
+  </head>
+  <body>
+  <div ng-controller="OperatorController as opCtrl" class="container">
+ 		<h1>Turing - Mode Opérateur </h1>
+    <p class="bg-warning" ng-show="running">La dernière conversation en date est actuellement <strong>encore en cours</strong> (cid: <em>{{cid}}</em>)! </p>
+		<div class="status" ng-class="statusClass"><p class="text-center">{{statusMsg}}</p></div>
+		<button ng-show="!running" type="button"
+			class="btn"
+			ng-class="opAvailabilityClass"
+			ng-click="changeAvailability()">
+			{{opAvailabilityText}}
+		</button>
+		<conversation ng-show="running"></conversation>
+  </div>
+  </body>
+</html>
