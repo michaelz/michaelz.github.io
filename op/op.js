@@ -206,6 +206,6 @@ app.controller('MsgController',
 app.directive("conversation", function(){
   return {
     restrict: "E",
-    templateUrl:"_conversation.html"
+    templateUrl:"conversation.html"
   };
 });
